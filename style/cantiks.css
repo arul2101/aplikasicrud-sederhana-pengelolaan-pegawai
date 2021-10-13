@@ -2,3 +2,8 @@
 .hover-head:hover {
     color: #212529 !important;
 }
+
+/* Hover untuk logout */
+.logout-btn:hover {
+    color: rgb(255, 255, 255) !important;
+}
