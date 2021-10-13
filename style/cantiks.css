@@ -7,3 +7,12 @@
 .logout-btn:hover {
     color: rgb(255, 255, 255) !important;
 }
+
+.btn-tambahdata {
+    background-color: rgb(93, 241, 234) !important;
+}
+
+/* Hover untuk button Tambah Data */
+.btn-tambahdata:hover {
+    background-color: rgb(0, 255, 242) !important;
+}
