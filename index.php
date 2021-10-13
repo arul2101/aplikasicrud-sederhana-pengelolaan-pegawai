@@ -36,6 +36,21 @@
     </nav>
     <!-- Akhir Navbar -->
 
+    <!-- Search -->
+    <section class="container mt-4">
+      <div class="row">
+        <div class="col-md-4">
+          <form action="" method="post" class="d-flex">
+            <input type="text" autofocus autocomplete="off" class="form-control" id="keyword" placeholder="Searching.." name="keyword">
+            <button class="btn btn-primary ms-2" name="cari">
+              <i class="bi bi-search"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- Akhir Search -->
+
 
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
