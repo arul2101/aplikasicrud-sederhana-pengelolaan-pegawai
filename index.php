@@ -1,3 +1,12 @@
+<?php
+
+  // Menghubungkan ke file functions.php
+  require "myfunctions/functions.php";
+
+?>
+
+
+
 <!doctype html>
 <html lang="en">
   <head>
