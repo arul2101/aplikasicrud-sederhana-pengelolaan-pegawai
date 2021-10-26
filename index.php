@@ -57,6 +57,32 @@
     </section>
     <!-- Akhir Button Tambah Data -->
 
+    <!-- Tabel -->
+    <section class="container tabel mt-2" id="table">
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Nama Pegawai</th>
+                <th>Jabatan</th>
+                <th>NIK</th>
+                <th>Tanggal Masuk</th>
+                <th>Gaji</th>
+                <th>Lainnya</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <!-- AKhir Tabel -->
+
 
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
