@@ -1,0 +1,5 @@
+<?php
+
+    // Berisi kumpulan function
+
+?>
