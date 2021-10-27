@@ -38,7 +38,7 @@
 
     // Function untuk Tambah Data
     function tambahData($post) {
-        
+
         // Global scope
         global $db;
 
@@ -62,6 +62,36 @@
                 ";
 
         // Sintaks Sql query untuk tambah data
+        mysqli_query($db, $query);
+
+        return mysqli_affected_rows($db);
+
+    }
+
+    // Function untuk Ubah Data
+    function ubahData($data) {
+        
+        // Global Scope
+        global $db;
+
+        // Definisikan Variabel
+        $id = $data["id"];
+        $nama_pegawai = htmlspecialchars($data["nama_pegawai"]);
+        $jabatan = htmlspecialchars($data["jabatan"]);
+        $nik = htmlspecialchars($data["nik"]);
+        $tanggal_masuk = htmlspecialchars($data["tanggal_masuk"]);
+        $gaji = htmlspecialchars($data["gaji"]);
+
+        // Sintaks Sql untuk mengubah data dan simpan ke dalam variabel
+        $query = "UPDATE data_pegawai SET
+                    nama_pegawai = '$nama_pegawai',
+                    jabatan = '$jabatan',
+                    nik = '$nik',
+                    tanggal_masuk = '$tanggal_masuk',
+                    gaji = '$gaji'
+                    WHERE id = $id
+                ";
+
         mysqli_query($db, $query);
 
         return mysqli_affected_rows($db);
