@@ -111,4 +111,57 @@
         
     }
 
+    // Function Registrasi
+    function registrasi($data) {
+    
+        global $db;
+
+        // Definisikan Variabel
+        $username = strtolower(stripslashes($data["username"]));
+        $password = mysqli_real_escape_string($db, $data["password"]);
+        $password2 = mysqli_real_escape_string($db, $data["password2"]);
+
+        // Query Username yang ada di database
+        $result = mysqli_query($db, "SELECT * FROM user_data_pegawai WHERE username = '$username'");
+
+        // Cek Jika Username sudah ada atau belum di database
+        if( mysqli_fetch_assoc($result) ) {
+        echo "
+            <script>
+            alert('Username Sudah Terdaftar!');
+            </script>
+            ";
+
+            return false;
+        }
+
+        // Cek Jika Password dan Konfirmasi Password Berbeda
+        if( $password !== $password2 ) {
+        echo "
+            <script>
+            alert('Konfirmasi Password Berbeda!');
+            </script>
+            ";
+
+            return false;
+        }
+
+        // Acak Password agar tidak terlihat
+        $password = password_hash($password, PASSWORD_DEFAULT);
+
+        // Tambah Username dan Password ke database
+        mysqli_query($db, "INSERT INTO user_data_pegawai
+                            VALUES (
+                                '',
+                                '$username',
+                                '$password'
+                                )
+                            "
+                    );
+
+        // Kembalikan Nilai dari Fungsi affected rows
+        return mysqli_affected_rows($db);
+
+    }
+
 ?>
