@@ -1,3 +1,30 @@
+<?php
+  // Menghubungkan file functions
+  require "../myfunctions/functions.php";
+
+  // Cek Apakah Tombol Submit sudah di klik
+  if( isset($_POST["submit"]) ) {
+
+    // Jika ada data yang berubah, maka jalankan function tambahData()
+    if( tambahData($_POST) > 0 ) {
+      echo "
+            <script>
+                    alert('Data BERHASIL ditambahkan!');
+                    document.location.href = '../index.php';
+            </script>
+        ";
+    } else{
+      echo "
+            <script>
+                alert('Data GAGAL ditambahkan!');
+                document.location.href = '../index.php';
+            </script>
+        ";
+    }
+
+  }
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
