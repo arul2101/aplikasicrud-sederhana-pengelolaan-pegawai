@@ -94,7 +94,7 @@
                 <td class="align-middle"><?= $row["jabatan"]; ?></td>
                 <td class="align-middle"><?= $row["nik"]; ?></td>
                 <td class="align-middle"><?= $row["tanggal_masuk"]; ?></td>
-                <td class="align-middle"><?= $row["gaji"]; ?></td>
+                <td class="align-middle"><?= rupiah($row["gaji"]); ?></td>
                 <td>
                   <a href="" class="fs-3"><i class="bi bi-box-arrow-in-down-left"></i></a>
                   <a href="" class="fs-3 text-danger ms-1"><i class="bi bi-trash-fill delete-btn"></i></a>
