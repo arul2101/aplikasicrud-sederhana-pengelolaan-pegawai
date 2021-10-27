@@ -64,7 +64,7 @@
 
     <!-- Button Tambah Data -->
     <section class="container d-flex flex-row-reverse mt-5 hover-a">
-        <a href="tambah.php" class="text-decoration-none text-white btn btn-tambahdata">Tambah Data</a>
+        <a href="page/tambah.php" class="text-decoration-none text-white btn btn-tambahdata">Tambah Data</a>
     </section>
     <!-- Akhir Button Tambah Data -->
 
