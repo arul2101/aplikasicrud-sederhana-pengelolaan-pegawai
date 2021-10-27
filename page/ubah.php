@@ -9,6 +9,27 @@
     // query
     $pegawai = queryLoop("SELECT * FROM data_pegawai WHERE id = $id")[0];
 
+    // Cek apakah tombol submit sudah ditekan
+    if( isset($_POST["submit"]) ){
+
+        if( ubahData($_POST) > 0 ) {
+            echo "
+                <script>
+                    alert('Data BERHASIL diubah!');
+                    document.location.href = '../index.php';
+                </script>
+            ";
+        } else{
+            echo "
+                <script>
+                    alert('Data GAGAL diubah!');
+                    document.location.href = '../index.php';
+                </script>
+            ";
+        }
+  
+    }
+
 ?>
 
 <!doctype html>
