@@ -36,4 +36,36 @@
         return $hasil;
     }
 
+    // Function untuk Tambah Data
+    function tambahData($post) {
+        
+        // Global scope
+        global $db;
+
+        // Definisikan variabel
+        $nama_pegawai = htmlspecialchars($post["nama_pegawai"]);
+        $jabatan = htmlspecialchars($post["jabatan"]);
+        $nik = htmlspecialchars($post["nik"]);
+        $tanggal_masuk = htmlspecialchars($post["tanggal_masuk"]);
+        $gaji = htmlspecialchars($post["gaji"]);
+
+        // Sintaks Sql untuk menambahkan data ke tabel data_pegawai dan simpan ke dalam variabel
+        $query = "INSERT INTO data_pegawai 
+                    VALUES(
+                    '',
+                    '$nama_pegawai',
+                    '$jabatan',
+                    '$nik',
+                    '$tanggal_masuk',
+                    $gaji
+                    )
+                ";
+
+        // Sintaks Sql query untuk tambah data
+        mysqli_query($db, $query);
+
+        return mysqli_affected_rows($db);
+
+    }
+
 ?>
