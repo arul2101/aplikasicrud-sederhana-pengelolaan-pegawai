@@ -98,4 +98,17 @@
 
     }
 
+    // Function Hapus Data
+    function hapusData($id) {
+
+        // Global scope
+        global $db;
+
+        // Sintaks SQL Query untuk hapus data
+        mysqli_query($db, "DELETE FROM data_pegawai WHERE id = $id");
+
+        return mysqli_affected_rows($db);
+        
+    }
+
 ?>
