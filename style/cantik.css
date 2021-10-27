@@ -16,3 +16,8 @@
 .btn-tambahdata:hover {
     background-color: rgb(0, 255, 242) !important;
 }
+
+/* Utility Position */
+.h2-tambahdata h3 {
+    margin-top: 6rem;
+}
