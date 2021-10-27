@@ -97,7 +97,7 @@
                 <td class="align-middle"><?= rupiah($row["gaji"]); ?></td>
                 <td>
                   <a href="page/ubah.php?id=<?= $row["id"]; ?>" class="fs-3"><i class="bi bi-box-arrow-in-down-left"></i></a>
-                  <a href="" class="fs-3 text-danger ms-1"><i class="bi bi-trash-fill delete-btn"></i></a>
+                  <a href="page/hapus.php?id=<?= $row["id"]; ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="fs-3 text-danger ms-1"><i class="bi bi-trash-fill delete-btn"></i></a>
                 </td>
               </tr>
               <?php $i++ ?>
