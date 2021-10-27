@@ -3,6 +3,8 @@
   // Menghubungkan ke file functions.php
   require "myfunctions/functions.php";
 
+  $pegawai = queryLoop("SELECT * FROM data_pegawai");
+
 ?>
 
 
@@ -84,7 +86,22 @@
             </thead>
 
             <tbody>
-              
+              <?php $i = 1; ?>
+              <?php foreach( $pegawai as $row ) : ?>
+              <tr>
+                <td class="align-middle"><?= $i; ?></td>
+                <td class="align-middle"><?= $row["nama_pegawai"]; ?></td>
+                <td class="align-middle"><?= $row["jabatan"]; ?></td>
+                <td class="align-middle"><?= $row["nik"]; ?></td>
+                <td class="align-middle"><?= $row["tanggal_masuk"]; ?></td>
+                <td class="align-middle"><?= $row["gaji"]; ?></td>
+                <td>
+                  <a href="" class="fs-3"><i class="bi bi-box-arrow-in-down-left"></i></a>
+                  <a href="" class="fs-3 text-danger ms-1"><i class="bi bi-trash-fill delete-btn"></i></a>
+                </td>
+              </tr>
+              <?php $i++ ?>
+              <?php endforeach; ?>
             </tbody>
           </table>
         </div>
