@@ -1,3 +1,24 @@
+<?php
+    // Require
+    require "../myfunctions/functions.php";
+
+    if( isset($_POST["registrasi"]) ) {
+
+        if( registrasi($_POST) > 0 ) {
+            echo "
+                <script>
+                    alert('Registrasi Berhasil, Silahkan Login!');
+                </script>
+            ";
+        } else {
+            echo mysqli_error($db);
+        }
+
+    }
+?>
+
+
+
 <!doctype html>
 <html lang="en">
   <head>
