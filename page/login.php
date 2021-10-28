@@ -1,3 +1,36 @@
+<?php
+  // require
+  require "../myfunctions/functions.php";
+
+  if( isset($_POST["login"]) ) {
+
+    // Definisikan Variabel
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    // Query Username yg ada didatabase
+    $result = mysqli_query($db, "SELECT * FROM user_data_pegawai WHERE username = '$username'");
+
+    // Cek username yg di input user, ada di database ga. Jika ada:
+    if( mysqli_num_rows($result) === 1 ) {
+
+      // Fetch Barisnya
+      $row = mysqli_fetch_assoc($result);
+
+      // Cek password yg diinput user. Jika cocok dengan usernamenya :
+      if( password_verify($password, $row["password"]) ) {
+          header("Location: ../index.php");
+          exit;
+        }
+
+    }
+
+    $error = true;
+
+  }
+?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -69,6 +102,10 @@
     </section>
     <!-- Akhir Form Login -->
 
+
+    <?php if( isset($error) ) : ?>
+      <?= "<script> alert('Username dan Password salah!'); </script>" ?>
+    <?php endif; ?>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
   </body>
