@@ -1,6 +1,16 @@
 <?php
+  // // Jalankan Session
+  session_start();
+
   // require
   require "../myfunctions/functions.php";
+
+  if( isset($_SESSION["login"]) ) {
+
+    header("Location: ../index.php");
+    exit;
+
+  }
 
   if( isset($_POST["login"]) ) {
 
@@ -13,6 +23,9 @@
 
     // Cek username yg di input user, ada di database ga. Jika ada:
     if( mysqli_num_rows($result) === 1 ) {
+
+      // Set Session
+      $_SESSION["login"] = true;
 
       // Fetch Barisnya
       $row = mysqli_fetch_assoc($result);
