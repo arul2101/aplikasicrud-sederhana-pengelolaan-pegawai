@@ -1,6 +1,17 @@
 <?php
+   // Jalankan Session
+   session_start();
+
   // Menghubungkan file funtcions
   require "../myfunctions/functions.php";
+
+  // Cek ada session ga. Kalo ga ada :
+  if( !isset($_SESSION["login"]) ) {
+
+    header("Location: login.php");
+    exit;
+
+  }
 
   // Ambil data get
   $id = $_GET["id"];

@@ -1,6 +1,17 @@
 <?php
+  // Jalankan Session
+  session_start();
+
   // Menghubungkan file functions
   require "../myfunctions/functions.php";
+
+  // Cek ada session ga. Kalo ga ada :
+  if( !isset($_SESSION["login"]) ) {
+
+    header("Location: login.php");
+    exit;
+
+  }
 
   // Cek Apakah Tombol Submit sudah di klik
   if( isset($_POST["submit"]) ) {
