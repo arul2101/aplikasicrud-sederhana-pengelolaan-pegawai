@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
     <!-- My Css -->
-    <link href="style/cantiks.css" rel="stylesheet">
+    <link href="style/cantik.css" rel="stylesheet">
 
     <title>Aplikasi Pengelolaan Gaji Pegawai</title>
   </head>

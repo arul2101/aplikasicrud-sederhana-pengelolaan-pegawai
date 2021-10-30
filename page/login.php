@@ -5,6 +5,24 @@
   // require
   require "../myfunctions/functions.php";
 
+  // Cekk Cookie
+  if( isset($_COOKIE["id"]) && isset($_COOKIE["key"]) ) {
+  
+    // Ambil dan simpan ke variabel
+    $id = $_COOKIE["id"];
+    $key = $_COOKIE["key"];
+
+    // Ambil username berdasarkan id
+    $result = mysqli_query($db, "SELECT username FROM user_data_pegawai WHERE id = $id");
+    $row = mysqli_fetch_assoc($result);
+
+    // Cek cookie dan username, jika matching buat session
+    if( $key === hash("sha256", $row["username"]) ) {
+      $_SESSION["login"] = true;
+    }
+    
+  }
+
   if( isset($_SESSION["login"]) ) {
 
     header("Location: ../index.php");
@@ -24,17 +42,28 @@
     // Cek username yg di input user, ada di database ga. Jika ada:
     if( mysqli_num_rows($result) === 1 ) {
 
-      // Set Session
-      $_SESSION["login"] = true;
-
       // Fetch Barisnya
       $row = mysqli_fetch_assoc($result);
 
       // Cek password yg diinput user. Jika cocok dengan usernamenya :
       if( password_verify($password, $row["password"]) ) {
-          header("Location: ../index.php");
-          exit;
+
+        // Set Session
+        $_SESSION["login"] = true;
+
+        // Cek remember me
+        if( isset($_POST["remember"]) ) {
+
+          // Buat cookie
+          setcookie("id", $row["id"], time() + 60);
+          setcookie("key", hash("sha256", $row["username"]), time() + 60);
+
         }
+
+        header("Location: ../index.php");
+        exit;
+
+      }
 
     }
 
@@ -103,8 +132,8 @@
                     </div>
 
                     <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+                        <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                        <label class="form-check-label" for="remember">Remember Me</label>
                     </div>
 
                     <button type="submit" name="login" class="btn btn-primary mt-3">Login</button>
