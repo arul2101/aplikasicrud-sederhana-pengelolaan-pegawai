@@ -164,4 +164,20 @@
 
     }
 
+    // Function untuk Cari Data
+    function cariData($keyword) {
+
+        $query = "SELECT * FROM data_pegawai
+                    WHERE
+                    nama_pegawai LIKE '%$keyword%' OR
+                    jabatan LIKE '%$keyword%' OR
+                    nik LIKE '%$keyword%' OR
+                    tanggal_masuk LIKE '%$keyword%' OR
+                    gaji LIKE '%$keyword%'
+                ";
+
+        return queryLoop($query);
+
+    }
+
 ?>
