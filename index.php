@@ -177,6 +177,12 @@
       </section>
     <?php endif; ?>
     <!-- Pagination -->
+
+    <!-- Footer -->
+    <footer class="text-center">
+      <p>&copy; Created By <a href="https://github.com/arul2101" class="text-reset" target="_blank">Muhammad Yanuarullah Assidiq</a> With <i class="bi bi-heart-fill"></i> </p>
+    </footer>
+    <!-- Akhir Footer -->
     
 
 

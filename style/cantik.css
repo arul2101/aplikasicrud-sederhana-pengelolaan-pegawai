@@ -1,3 +1,7 @@
+body {
+    min-height: 100vh;
+}
+
 /* Hover untuk Navbar Dashboard */
 .hover-head:hover {
     color: #212529 !important;
@@ -20,4 +24,20 @@
 /* Utility Position */
 .h2-tambahdata h3 {
     margin-top: 6rem;
+}
+
+/* Style utk footer */
+footer {
+    position: sticky;
+    top: 100%;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 30px;
+}
+
+footer i {
+    color: red;
+}
+
+footer a {
+    text-decoration: none;
 }
