@@ -13,7 +13,21 @@
 
   }
 
-  $pegawai = queryLoop("SELECT * FROM data_pegawai");
+  // Konfigurasi
+  $jumlahDataPerHalaman = 6;
+  $jumlahData = count(queryLoop("SELECT * FROM data_pegawai"));
+  $jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
+  if( isset($_GET["p"]) ){
+      $halamanAktif = $_GET["p"];
+  } else{
+      $halamanAktif = 1;
+  }
+
+  // Maksud Formula dibawah
+  // Jika Halaman Aktifnya = 2, Jumlah Data Per Halaman = 5. Awal datanya dimulai dari index ke (5*2) - 5 yaitu dimulai dari index ke 5.
+  $awalData = ( $jumlahDataPerHalaman * $halamanAktif ) - $jumlahDataPerHalaman;
+
+  $pegawai = queryLoop("SELECT * FROM data_pegawai ORDER BY id DESC LIMIT $awalData, $jumlahDataPerHalaman");
 
 ?>
 
@@ -99,7 +113,7 @@
               <?php $i = 1; ?>
               <?php foreach( $pegawai as $row ) : ?>
               <tr>
-                <td class="align-middle"><?= $i; ?></td>
+                <td class="align-middle"><?= $i + $awalData; ?></td>
                 <td class="align-middle"><?= $row["nama_pegawai"]; ?></td>
                 <td class="align-middle"><?= $row["jabatan"]; ?></td>
                 <td class="align-middle"><?= $row["nik"]; ?></td>
@@ -118,6 +132,48 @@
       </div>
     </section>
     <!-- AKhir Tabel -->
+
+    <!-- Pagination -->
+    <?php if( !isset($_POST["cari"]) ) : ?>
+      <section class="container" id="pagination">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-end">
+
+            <?php if( $halamanAktif > 1 ) : ?>
+              <li class="page-item">
+                <a class="page-link" href="?p=<?= $halamanAktif - 1 ; ?>">Previous</a>
+              </li>
+            <?php else : ?>
+              <li class="page-item disabled">
+                <a class="page-link">Previous</a>
+              </li>
+            <?php endif; ?>
+
+            <?php for( $i = 1; $i <= $jumlahHalaman; $i++ ) : ?>
+              <?php if( $i == $halamanAktif ) : ?>
+                <li class="page-item active"><a class="page-link" href="?p=<?= $i; ?>"><?= $i; ?></a></li>
+              <?php else :?>
+                <li class="page-item"><a class="page-link" href="?p=<?= $i; ?>"><?= $i; ?></a></li>
+              <?php endif; ?>
+            <?php endfor; ?>
+
+            <?php if( $halamanAktif < $jumlahHalaman ) : ?>
+              <li class="page-item">
+                <a class="page-link" href="?p=<?= $halamanAktif + 1; ?>">Next</a>
+              </li>
+            <?php else : ?>
+              <li class="page-item disabled">
+                <a class="page-link">Next</a>
+              </li>
+            <?php endif; ?>
+
+          </ul>
+        </nav>
+      </section>
+    <?php endif; ?>
+    <!-- Pagination -->
+    
+
 
 
 
