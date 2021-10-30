@@ -7,8 +7,8 @@ body {
     color: #212529 !important;
 }
 
-/* Hover untuk logout */
-.logout-btn:hover {
+/* Hover untuk logout, Login, Registrasi */
+.utility-btn:hover {
     color: rgb(255, 255, 255) !important;
 }
 
@@ -40,4 +40,15 @@ footer i {
 
 footer a {
     text-decoration: none;
+}
+
+/* Hover pada Tombol Back di ubah.php dan tambah.php */
+.back-button:hover {
+    color: rgb(184, 70, 70);
+
+}
+
+/* Hover pada Tombol Hapus di index.php */
+.delete-btn:hover {
+    color: rgb(184, 70, 70);
 }

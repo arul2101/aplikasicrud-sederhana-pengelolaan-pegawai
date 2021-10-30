@@ -95,14 +95,14 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
       <div class="container">
-        <a class="navbar-brand text-light" href="index.php">Dashboard</a>
+        <a class="navbar-brand text-light hover-head" href="../index.php">Dashboard</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active hover" aria-current="page" href="registrasi.php">Registrasi</a>
+              <a class="nav-link active utility-btn" aria-current="page" href="registrasi.php">Registrasi</a>
             </li>
           </ul>
         </div>

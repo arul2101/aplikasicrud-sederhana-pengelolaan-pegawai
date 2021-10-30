@@ -65,7 +65,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active hover" aria-current="page" href="">Logout</a>
+              <a class="nav-link active utility-btn" aria-current="page" href="logout.php">Logout</a>
             </li>
           </ul>
         </div>
