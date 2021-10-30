@@ -29,6 +29,11 @@
 
   $pegawai = queryLoop("SELECT * FROM data_pegawai ORDER BY id DESC LIMIT $awalData, $jumlahDataPerHalaman");
 
+  // Cek apakah tombol cari sudah diklik
+  if( isset($_POST["cari"]) ) {
+    $pegawai = cariData($_POST["keyword"]);
+  }
+
 ?>
 
 
